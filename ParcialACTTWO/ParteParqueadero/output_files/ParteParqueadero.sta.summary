@@ -1,0 +1,233 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Clock'
+Slack : -4.330
+TNS   : -80.318
+
+Type  : Slow 1200mV 85C Model Setup 'ant_state.inicio'
+Slack : -2.043
+TNS   : -5.274
+
+Type  : Slow 1200mV 85C Model Setup 'SacaCarro'
+Slack : -1.618
+TNS   : -3.800
+
+Type  : Slow 1200mV 85C Model Setup 'Enter'
+Slack : -0.211
+TNS   : -0.211
+
+Type  : Slow 1200mV 85C Model Setup 'Aumento'
+Slack : 0.006
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SacaCarro'
+Slack : -0.710
+TNS   : -2.081
+
+Type  : Slow 1200mV 85C Model Hold 'Clock'
+Slack : 0.013
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Aumento'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Enter'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ant_state.inicio'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'Enter'
+Slack : -1.402
+TNS   : -5.608
+
+Type  : Slow 1200mV 85C Model Recovery 'Clock'
+Slack : 0.001
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Enter'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Clock'
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -39.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Enter'
+Slack : -3.000
+TNS   : -7.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Aumento'
+Slack : -3.000
+TNS   : -6.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SacaCarro'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ant_state.inicio'
+Slack : 0.328
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Clock'
+Slack : -3.756
+TNS   : -68.049
+
+Type  : Slow 1200mV 0C Model Setup 'ant_state.inicio'
+Slack : -1.899
+TNS   : -4.837
+
+Type  : Slow 1200mV 0C Model Setup 'SacaCarro'
+Slack : -1.350
+TNS   : -3.112
+
+Type  : Slow 1200mV 0C Model Setup 'Enter'
+Slack : -0.084
+TNS   : -0.084
+
+Type  : Slow 1200mV 0C Model Setup 'Aumento'
+Slack : 0.114
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SacaCarro'
+Slack : -0.649
+TNS   : -1.819
+
+Type  : Slow 1200mV 0C Model Hold 'Clock'
+Slack : -0.031
+TNS   : -0.031
+
+Type  : Slow 1200mV 0C Model Hold 'Aumento'
+Slack : 0.333
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Enter'
+Slack : 0.333
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ant_state.inicio'
+Slack : 0.614
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'Enter'
+Slack : -1.122
+TNS   : -4.488
+
+Type  : Slow 1200mV 0C Model Recovery 'Clock'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Enter'
+Slack : 0.231
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Clock'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -39.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Enter'
+Slack : -3.000
+TNS   : -7.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Aumento'
+Slack : -3.000
+TNS   : -6.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SacaCarro'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ant_state.inicio'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Clock'
+Slack : -1.986
+TNS   : -30.498
+
+Type  : Fast 1200mV 0C Model Setup 'ant_state.inicio'
+Slack : -0.851
+TNS   : -1.964
+
+Type  : Fast 1200mV 0C Model Setup 'SacaCarro'
+Slack : -0.471
+TNS   : -0.823
+
+Type  : Fast 1200mV 0C Model Setup 'Enter'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Aumento'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SacaCarro'
+Slack : -0.579
+TNS   : -1.661
+
+Type  : Fast 1200mV 0C Model Hold 'Clock'
+Slack : -0.044
+TNS   : -0.076
+
+Type  : Fast 1200mV 0C Model Hold 'Aumento'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Enter'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ant_state.inicio'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'Enter'
+Slack : -0.420
+TNS   : -1.680
+
+Type  : Fast 1200mV 0C Model Recovery 'Clock'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Enter'
+Slack : 0.170
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Clock'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -40.776
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Enter'
+Slack : -3.000
+TNS   : -7.380
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Aumento'
+Slack : -3.000
+TNS   : -6.240
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SacaCarro'
+Slack : -3.000
+TNS   : -3.089
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ant_state.inicio'
+Slack : 0.328
+TNS   : 0.000
+
+------------------------------------------------------------

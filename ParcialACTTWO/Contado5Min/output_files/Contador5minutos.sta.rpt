@@ -1,0 +1,1333 @@
+TimeQuest Timing Analyzer report for Contador5minutos
+Tue Jun 13 11:51:17 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'Clk'
+ 13. Slow 1200mV 85C Model Hold: 'Clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'Clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'Clk'
+ 27. Slow 1200mV 0C Model Hold: 'Clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'Clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'Clk'
+ 40. Fast 1200mV 0C Model Hold: 'Clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'Clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; Contador5minutos                                   ;
+; Device Family      ; Cyclone III                                        ;
+; Device Name        ; EP3C16F484C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 500.75 MHz ; 250.0 MHz       ; Clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; Clk   ; -0.997 ; -8.698             ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; Clk   ; 0.359 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; Clk   ; -3.000 ; -16.000                          ;
++-------+--------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Clk'                                                                                             ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; -0.997 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.931      ;
+; -0.997 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.931      ;
+; -0.997 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.931      ;
+; -0.997 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.931      ;
+; -0.894 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.829      ;
+; -0.894 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.829      ;
+; -0.894 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.829      ;
+; -0.894 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.829      ;
+; -0.846 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.780      ;
+; -0.846 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.780      ;
+; -0.846 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.780      ;
+; -0.846 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.780      ;
+; -0.751 ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.686      ;
+; -0.751 ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.686      ;
+; -0.751 ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.686      ;
+; -0.751 ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.686      ;
+; -0.724 ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.658      ;
+; -0.724 ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.658      ;
+; -0.724 ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.658      ;
+; -0.724 ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.658      ;
+; -0.623 ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.558      ;
+; -0.623 ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.558      ;
+; -0.623 ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.558      ;
+; -0.623 ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.558      ;
+; -0.612 ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.288      ; 1.895      ;
+; -0.587 ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.521      ;
+; -0.584 ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.518      ;
+; -0.581 ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.515      ;
+; -0.581 ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.515      ;
+; -0.507 ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.441      ;
+; -0.504 ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.438      ;
+; -0.468 ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.402      ;
+; -0.468 ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.402      ;
+; -0.465 ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.399      ;
+; -0.448 ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.288      ; 1.731      ;
+; -0.339 ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.288      ; 1.622      ;
+; -0.202 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.136      ;
+; -0.171 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.105      ;
+; -0.149 ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.084      ;
+; -0.137 ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 1.072      ;
+; -0.115 ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.062     ; 1.048      ;
+; -0.077 ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.062     ; 1.010      ;
+; -0.077 ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.011      ;
+; -0.077 ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.011      ;
+; -0.073 ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.062     ; 1.006      ;
+; -0.073 ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.007      ;
+; -0.072 ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.062     ; 1.005      ;
+; -0.072 ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 1.006      ;
+; -0.051 ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.985      ;
+; 0.077  ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.060     ; 0.858      ;
+; 0.080  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.854      ;
+; 0.205  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.729      ;
+; 0.205  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.729      ;
+; 0.216  ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.287      ; 1.066      ;
+; 0.275  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.659      ;
+; 0.275  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.659      ;
+; 0.275  ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.659      ;
+; 0.275  ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.061     ; 0.659      ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Clk'                                                                                             ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; 0.359 ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.359 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.577      ;
+; 0.362 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.580      ;
+; 0.391 ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.423      ; 0.971      ;
+; 0.404 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.622      ;
+; 0.404 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.622      ;
+; 0.545 ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.764      ;
+; 0.545 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.763      ;
+; 0.573 ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.791      ;
+; 0.574 ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.792      ;
+; 0.576 ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.794      ;
+; 0.585 ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.803      ;
+; 0.586 ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.804      ;
+; 0.704 ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.060      ; 0.921      ;
+; 0.708 ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.060      ; 0.925      ;
+; 0.717 ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.060      ; 0.934      ;
+; 0.742 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.960      ;
+; 0.743 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.961      ;
+; 0.748 ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.060      ; 0.965      ;
+; 0.749 ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.968      ;
+; 0.760 ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.979      ;
+; 0.848 ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.066      ;
+; 0.860 ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.078      ;
+; 0.862 ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.080      ;
+; 0.863 ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.081      ;
+; 0.863 ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.081      ;
+; 0.865 ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.083      ;
+; 0.958 ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.176      ;
+; 0.972 ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.190      ;
+; 0.975 ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.193      ;
+; 1.002 ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.424      ; 1.583      ;
+; 1.134 ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.424      ; 1.715      ;
+; 1.272 ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.424      ; 1.853      ;
+; 1.362 ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.581      ;
+; 1.362 ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.581      ;
+; 1.362 ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.581      ;
+; 1.362 ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.581      ;
+; 1.412 ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.630      ;
+; 1.412 ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.630      ;
+; 1.412 ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.630      ;
+; 1.412 ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.630      ;
+; 1.465 ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.684      ;
+; 1.465 ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.684      ;
+; 1.465 ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.684      ;
+; 1.465 ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.684      ;
+; 1.531 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.749      ;
+; 1.531 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.749      ;
+; 1.531 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.749      ;
+; 1.531 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.749      ;
+; 1.562 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.781      ;
+; 1.562 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.781      ;
+; 1.562 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.781      ;
+; 1.562 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.781      ;
+; 1.682 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.900      ;
+; 1.682 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.900      ;
+; 1.682 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.900      ;
+; 1.682 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.900      ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'Clk'                                                            ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                     ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; Clk   ; Rise       ; Clk                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[5]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[6]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[7]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[8]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[9]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.165  ; 0.349        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]                ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.327  ; 0.327        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.412  ; 0.628        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; 0.412  ; 0.628        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; 0.412  ; 0.628        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; 0.412  ; 0.628        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]                ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; 0.413  ; 0.629        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.433  ; 0.649        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.652  ; 0.652        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.673  ; 0.673        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 1.501 ; 1.553 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Enable    ; Clk        ; -0.200 ; -0.278 ; Rise       ; Clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 5.665 ; 5.662 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 5.314 ; 5.322 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 5.665 ; 5.662 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 5.286 ; 5.284 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 5.299 ; 5.308 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 5.286 ; 5.276 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 5.178 ; 5.167 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 5.206 ; 5.213 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 5.544 ; 5.539 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 5.178 ; 5.174 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 5.192 ; 5.197 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 5.179 ; 5.167 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 552.18 MHz ; 250.0 MHz       ; Clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; Clk   ; -0.811 ; -6.642            ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; Clk   ; 0.312 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; Clk   ; -3.000 ; -16.000                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Clk'                                                                                              ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; -0.811 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.751      ;
+; -0.811 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.751      ;
+; -0.811 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.751      ;
+; -0.811 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.751      ;
+; -0.703 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.644      ;
+; -0.703 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.644      ;
+; -0.703 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.644      ;
+; -0.703 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.644      ;
+; -0.661 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.601      ;
+; -0.661 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.601      ;
+; -0.661 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.601      ;
+; -0.661 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.601      ;
+; -0.581 ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.522      ;
+; -0.581 ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.522      ;
+; -0.581 ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.522      ;
+; -0.581 ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.522      ;
+; -0.568 ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.508      ;
+; -0.568 ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.508      ;
+; -0.568 ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.508      ;
+; -0.568 ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.508      ;
+; -0.466 ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.407      ;
+; -0.466 ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.407      ;
+; -0.466 ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.407      ;
+; -0.466 ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.407      ;
+; -0.459 ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.263      ; 1.717      ;
+; -0.411 ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.351      ;
+; -0.410 ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.350      ;
+; -0.406 ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.346      ;
+; -0.393 ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.333      ;
+; -0.345 ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.285      ;
+; -0.341 ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.281      ;
+; -0.310 ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.250      ;
+; -0.310 ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.250      ;
+; -0.306 ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 1.246      ;
+; -0.300 ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.263      ; 1.558      ;
+; -0.216 ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.263      ; 1.474      ;
+; -0.064 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 1.005      ;
+; -0.035 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.976      ;
+; -0.028 ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.969      ;
+; -0.018 ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.959      ;
+; 0.008  ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.056     ; 0.931      ;
+; 0.032  ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.056     ; 0.907      ;
+; 0.043  ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.056     ; 0.896      ;
+; 0.043  ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.897      ;
+; 0.043  ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.897      ;
+; 0.046  ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.056     ; 0.893      ;
+; 0.047  ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.893      ;
+; 0.047  ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.893      ;
+; 0.057  ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.883      ;
+; 0.170  ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.771      ;
+; 0.177  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.764      ;
+; 0.286  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.655      ;
+; 0.286  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.655      ;
+; 0.321  ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.262      ; 0.936      ;
+; 0.357  ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.055     ; 0.583      ;
+; 0.358  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.583      ;
+; 0.358  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.583      ;
+; 0.358  ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.054     ; 0.583      ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Clk'                                                                                              ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; 0.312 ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.511      ;
+; 0.313 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.511      ;
+; 0.321 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.519      ;
+; 0.359 ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.385      ; 0.888      ;
+; 0.360 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.558      ;
+; 0.361 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.559      ;
+; 0.492 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.690      ;
+; 0.495 ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.694      ;
+; 0.513 ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.712      ;
+; 0.515 ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.714      ;
+; 0.517 ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.716      ;
+; 0.527 ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.726      ;
+; 0.527 ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.726      ;
+; 0.650 ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 0.847      ;
+; 0.652 ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 0.849      ;
+; 0.654 ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 0.851      ;
+; 0.675 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.873      ;
+; 0.675 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 0.873      ;
+; 0.686 ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.885      ;
+; 0.687 ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 0.884      ;
+; 0.695 ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.894      ;
+; 0.760 ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.959      ;
+; 0.762 ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.961      ;
+; 0.766 ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.965      ;
+; 0.766 ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.965      ;
+; 0.769 ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.968      ;
+; 0.773 ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.972      ;
+; 0.849 ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.048      ;
+; 0.858 ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.057      ;
+; 0.862 ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.061      ;
+; 0.897 ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.385      ; 1.426      ;
+; 1.029 ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.385      ; 1.558      ;
+; 1.138 ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.385      ; 1.667      ;
+; 1.241 ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.440      ;
+; 1.241 ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.440      ;
+; 1.241 ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.440      ;
+; 1.241 ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.440      ;
+; 1.271 ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.468      ;
+; 1.271 ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.468      ;
+; 1.271 ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.468      ;
+; 1.271 ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.468      ;
+; 1.329 ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.528      ;
+; 1.329 ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.528      ;
+; 1.329 ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.528      ;
+; 1.329 ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.528      ;
+; 1.395 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.592      ;
+; 1.395 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.592      ;
+; 1.395 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.592      ;
+; 1.395 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.592      ;
+; 1.423 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.622      ;
+; 1.423 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.622      ;
+; 1.423 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.622      ;
+; 1.423 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.622      ;
+; 1.512 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.709      ;
+; 1.512 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.709      ;
+; 1.512 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.709      ;
+; 1.512 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.053      ; 1.709      ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'Clk'                                                             ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                     ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; Clk   ; Rise       ; Clk                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[5]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[6]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[7]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[8]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[9]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.174  ; 0.358        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]                ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]                ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]                ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]                ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]                ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; 0.180  ; 0.364        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]                ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; 0.419  ; 0.635        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.425  ; 0.641        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.659  ; 0.659        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.665  ; 0.665        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 1.381 ; 1.478 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Enable    ; Clk        ; -0.191 ; -0.324 ; Rise       ; Clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 5.376 ; 5.362 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 5.050 ; 5.028 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 5.376 ; 5.362 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 5.023 ; 5.009 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 5.039 ; 5.020 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 5.024 ; 5.008 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 4.927 ; 4.912 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 4.955 ; 4.932 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 5.267 ; 5.251 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 4.927 ; 4.912 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 4.943 ; 4.923 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 4.929 ; 4.912 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; Clk   ; -0.099 ; -0.616            ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; Clk   ; 0.188 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; Clk   ; -3.000 ; -16.767                         ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Clk'                                                                                              ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; -0.099 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 1.050      ;
+; -0.099 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 1.050      ;
+; -0.099 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 1.050      ;
+; -0.099 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 1.050      ;
+; -0.055 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 1.007      ;
+; -0.055 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 1.007      ;
+; -0.055 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 1.007      ;
+; -0.055 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 1.007      ;
+; -0.029 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.980      ;
+; -0.029 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.980      ;
+; -0.029 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.980      ;
+; -0.029 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.980      ;
+; 0.035  ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.917      ;
+; 0.035  ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.917      ;
+; 0.035  ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.917      ;
+; 0.035  ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.917      ;
+; 0.062  ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.889      ;
+; 0.062  ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.889      ;
+; 0.062  ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.889      ;
+; 0.062  ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.889      ;
+; 0.096  ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.856      ;
+; 0.096  ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.856      ;
+; 0.096  ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.856      ;
+; 0.096  ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.856      ;
+; 0.108  ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.153      ; 1.032      ;
+; 0.111  ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.841      ;
+; 0.115  ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.837      ;
+; 0.126  ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.826      ;
+; 0.126  ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.826      ;
+; 0.164  ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.788      ;
+; 0.164  ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.788      ;
+; 0.189  ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.153      ; 0.951      ;
+; 0.194  ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.758      ;
+; 0.194  ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.758      ;
+; 0.194  ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.758      ;
+; 0.269  ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.153      ; 0.871      ;
+; 0.320  ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.632      ;
+; 0.337  ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.615      ;
+; 0.351  ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.601      ;
+; 0.359  ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.592      ;
+; 0.359  ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.593      ;
+; 0.380  ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.571      ;
+; 0.381  ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.570      ;
+; 0.382  ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 1.000        ; -0.036     ; 0.569      ;
+; 0.399  ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.553      ;
+; 0.399  ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.553      ;
+; 0.400  ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.552      ;
+; 0.400  ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.552      ;
+; 0.408  ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.544      ;
+; 0.480  ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.472      ;
+; 0.486  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.466      ;
+; 0.543  ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 1.000        ; 0.153      ; 0.597      ;
+; 0.556  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.396      ;
+; 0.557  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.395      ;
+; 0.593  ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.359      ;
+; 0.593  ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.359      ;
+; 0.593  ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.359      ;
+; 0.593  ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 1.000        ; -0.035     ; 0.359      ;
++--------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Clk'                                                                                              ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+; 0.188 ; Contador[5]            ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.307      ;
+; 0.194 ; Contador[6]            ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.231      ; 0.509      ;
+; 0.195 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.314      ;
+; 0.214 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.333      ;
+; 0.214 ; \ContadorSeg:count2[0] ; \ContadorSeg:count2[1] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.333      ;
+; 0.285 ; \ContadorSeg:count2[2] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.404      ;
+; 0.287 ; \ContadorSeg:count2[2] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.406      ;
+; 0.307 ; Contador[9]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.426      ;
+; 0.308 ; Contador[7]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.427      ;
+; 0.309 ; Contador[8]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.428      ;
+; 0.313 ; Contador[5]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.432      ;
+; 0.313 ; Contador[6]            ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.432      ;
+; 0.371 ; Contador[8]            ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.489      ;
+; 0.372 ; Contador[9]            ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.490      ;
+; 0.377 ; Contador[7]            ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.495      ;
+; 0.388 ; Contador[5]            ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.506      ;
+; 0.392 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[2] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.511      ;
+; 0.392 ; \ContadorSeg:count2[1] ; \ContadorSeg:count2[0] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.511      ;
+; 0.397 ; \ContadorSeg:count2[1] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.516      ;
+; 0.401 ; \ContadorSeg:count2[0] ; Contador[5]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.520      ;
+; 0.457 ; Contador[7]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.576      ;
+; 0.465 ; Contador[5]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.584      ;
+; 0.466 ; Contador[6]            ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.585      ;
+; 0.467 ; Contador[8]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.586      ;
+; 0.468 ; Contador[5]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.587      ;
+; 0.469 ; Contador[6]            ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.588      ;
+; 0.520 ; Contador[7]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.639      ;
+; 0.531 ; Contador[5]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.650      ;
+; 0.532 ; Contador[6]            ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.651      ;
+; 0.554 ; \ContadorSeg:count2[0] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.231      ; 0.869      ;
+; 0.604 ; \ContadorSeg:count2[2] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.231      ; 0.919      ;
+; 0.700 ; \ContadorSeg:count2[1] ; Costo[6]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.231      ; 1.015      ;
+; 0.725 ; \ContadorSeg:count2[2] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.844      ;
+; 0.725 ; \ContadorSeg:count2[2] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.844      ;
+; 0.725 ; \ContadorSeg:count2[2] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.844      ;
+; 0.725 ; \ContadorSeg:count2[2] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.844      ;
+; 0.780 ; \ContadorSeg:count2[0] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.898      ;
+; 0.780 ; \ContadorSeg:count2[0] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.898      ;
+; 0.780 ; \ContadorSeg:count2[0] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.898      ;
+; 0.780 ; \ContadorSeg:count2[0] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.898      ;
+; 0.782 ; \ContadorSeg:count2[0] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.901      ;
+; 0.782 ; \ContadorSeg:count2[0] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.901      ;
+; 0.782 ; \ContadorSeg:count2[0] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.901      ;
+; 0.782 ; \ContadorSeg:count2[0] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.901      ;
+; 0.818 ; \ContadorSeg:count2[2] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.936      ;
+; 0.818 ; \ContadorSeg:count2[2] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.936      ;
+; 0.818 ; \ContadorSeg:count2[2] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.936      ;
+; 0.818 ; \ContadorSeg:count2[2] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 0.936      ;
+; 0.839 ; \ContadorSeg:count2[1] ; Contador[9]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.958      ;
+; 0.839 ; \ContadorSeg:count2[1] ; Contador[8]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.958      ;
+; 0.839 ; \ContadorSeg:count2[1] ; Contador[7]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.958      ;
+; 0.839 ; \ContadorSeg:count2[1] ; Contador[6]            ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.958      ;
+; 0.926 ; \ContadorSeg:count2[1] ; Costo[9]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 1.044      ;
+; 0.926 ; \ContadorSeg:count2[1] ; Costo[8]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 1.044      ;
+; 0.926 ; \ContadorSeg:count2[1] ; Costo[7]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 1.044      ;
+; 0.926 ; \ContadorSeg:count2[1] ; Costo[5]~reg0          ; Clk          ; Clk         ; 0.000        ; 0.034      ; 1.044      ;
++-------+------------------------+------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'Clk'                                                             ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                     ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; Clk   ; Rise       ; Clk                        ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[5]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[6]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[7]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[8]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Contador[9]                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; -0.086 ; 0.098        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]                ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]                ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]                ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]                ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]                ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.094  ; 0.094        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; Clk   ; Rise       ; Clk~input|i                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]                ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0              ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0              ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0              ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0              ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]     ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]     ;
+; 0.683  ; 0.899        ; 0.216          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0              ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|inclk[0]  ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~inputclkctrl|outclk    ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[5]|clk            ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[6]|clk            ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[7]|clk            ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[8]|clk            ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Contador[9]|clk            ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[5]~reg0|clk          ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[7]~reg0|clk          ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[8]~reg0|clk          ;
+; 0.877  ; 0.877        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[9]~reg0|clk          ;
+; 0.882  ; 0.882        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Clk~input|o                ;
+; 0.905  ; 0.905        ; 0.000          ; High Pulse Width ; Clk   ; Rise       ; Costo[6]~reg0|clk          ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.863 ; 1.109 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Enable    ; Clk        ; -0.154 ; -0.394 ; Rise       ; Clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 3.365 ; 3.417 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 3.180 ; 3.227 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 3.365 ; 3.417 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 3.150 ; 3.199 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 3.162 ; 3.208 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 3.154 ; 3.207 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 3.087 ; 3.134 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 3.117 ; 3.162 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 3.295 ; 3.345 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 3.087 ; 3.134 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 3.100 ; 3.143 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 3.092 ; 3.142 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.997 ; 0.188 ; N/A      ; N/A     ; -3.000              ;
+;  Clk             ; -0.997 ; 0.188 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -8.698 ; 0.0   ; 0.0      ; 0.0     ; -16.767             ;
+;  Clk             ; -8.698 ; 0.000 ; N/A      ; N/A     ; -16.767             ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 1.501 ; 1.553 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Enable    ; Clk        ; -0.154 ; -0.278 ; Rise       ; Clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 5.665 ; 5.662 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 5.314 ; 5.322 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 5.665 ; 5.662 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 5.286 ; 5.284 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 5.299 ; 5.308 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 5.286 ; 5.276 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Costo[*]  ; Clk        ; 3.087 ; 3.134 ; Rise       ; Clk             ;
+;  Costo[5] ; Clk        ; 3.117 ; 3.162 ; Rise       ; Clk             ;
+;  Costo[6] ; Clk        ; 3.295 ; 3.345 ; Rise       ; Clk             ;
+;  Costo[7] ; Clk        ; 3.087 ; 3.134 ; Rise       ; Clk             ;
+;  Costo[8] ; Clk        ; 3.100 ; 3.143 ; Rise       ; Clk             ;
+;  Costo[9] ; Clk        ; 3.092 ; 3.142 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Costo[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[2]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[3]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[4]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[5]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[6]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[7]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[8]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Costo[9]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; Clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; Enable                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Costo[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[3]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[4]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[5]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[6]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[7]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[8]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[9]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Costo[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[2]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[3]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; Costo[4]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[5]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[6]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[7]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[8]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Costo[9]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clk        ; Clk      ; 58       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clk        ; Clk      ; 58       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 13    ; 13   ;
+; Unconstrained Output Ports      ; 5     ; 5    ;
+; Unconstrained Output Port Paths ; 5     ; 5    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Jun 13 11:51:16 2023
+Info: Command: quartus_sta Contador5minutos -c Contador5minutos
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Contador5minutos.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Clk Clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.997
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.997              -8.698 Clk 
+Info (332146): Worst-case hold slack is 0.359
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.359               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -16.000 Clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.811
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.811              -6.642 Clk 
+Info (332146): Worst-case hold slack is 0.312
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.312               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -16.000 Clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.099
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.099              -0.616 Clk 
+Info (332146): Worst-case hold slack is 0.188
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.188               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -16.767 Clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4694 megabytes
+    Info: Processing ended: Tue Jun 13 11:51:17 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

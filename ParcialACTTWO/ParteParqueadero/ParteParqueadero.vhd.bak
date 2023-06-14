@@ -1,0 +1,187 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ParteParqueadero is
+	port(
+		Clock, Reset: in std_logic;
+		FRONT_SENSOR, BACK_SENSOR, Enter: in std_logic;
+		Contraseña : in std_logic_vector(3 downto 0);
+		LED_R, LED_V, AbrirPuerta, CerrarPuerta: out std_logic);
+end ParteParqueadero;
+
+architecture arq of ParteParqueadero is
+--Estados de la primera maquina
+	type estados is (inicio, Contrasena, aprovado, Desaprovado, ingreso);
+--Estados de la segunda maquina (Intentos de contraseña)
+	type estados2 is (Primer, Segundo, Tercero, ingreso, Fallido);
+	signal ant_state, next_state : estados;
+--Señales para el proceso de anidar maquina, conteo para regresar al inicio
+	signal MomentoContra, Correcta, incorrecta, conteo : std_logic;
+	
+begin
+--Proceso de reseteo
+secuencial : process (Reset, Clock)
+	begin
+		if Reset = '1' then
+			ant_state <= inicio;
+--Asigna el siguiente estado al actual
+		elsif rising_edge(Clock) then 
+			ant_state <= next_state;
+			
+		end if;
+	end process secuencial;
+--Maquina de estados principal
+combinacional : process (ant_state, FRONT_SENSOR, BACK_SENSOR, Correcta, Incorrecta, Conteo)
+begin	
+	case (ant_state) is 
+	
+--Primer estado, si el sensor frontal detecta algo pasara al siguiente
+	when inicio =>
+		if (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then 
+			next_state <= Contrasena;
+		else
+			next_state <= inicio;
+		end if;
+	
+--SEGUNDO ESTADO, ingresar la contraseña 
+	when Contrasena =>
+	
+-- si la segunda maquina devuelve correcta se va al estado aprovado
+		if (FRONT_SENSOR = '1') and (Correcta = '1') and (Incorrecta='0') then
+			next_state <= Aprovado;
+
+-- Si la segunda maquina devuelve un incorrecta se va al estado desaprovado
+		elsif (FRONT_SENSOR = '1') and (Correcta = '0') and (Incorrecta='1') then
+			next_state <= Desaprovado;
+		
+--Por si el carro se va sin completar los 3 intenttos
+		elsif (FRONT_SENSOR = '0') then
+			next_state <= Inicio;
+
+--Regresa a si mismo para esperar una orden
+		else 
+			next_state <= Contrasena;
+		end if;
+	
+-- TERCER ESTADO, Si ingreso la contraseña correctamente
+	when aprovado =>
+	
+-- El carro desaparecio, regresa al estado inicio
+		if (BACK_SENSOR = '0') and (FRONT_SENSOR = '0') then 
+			next_state <= Inicio;
+		
+-- El carro no ha avanzado
+		elsif  (FroNT_SENSOR = '1') and (BacK_SENSOR= '0') then
+			next_state <= Aprovado;
+		
+-- El carro avanzo
+		else 
+			next_state <= Ingreso;
+		end if;
+	
+-- CUARTO ESTADO, este estado sera para asegurarse de que el ya paso por completo y paso un tiempo
+		when ingreso =>
+	
+--Este por si ya no detecta nada
+		if (FRONT_SENSOR = '0') and (BACK_SENSOR = '0') and (Conteo ='1') then
+			next_state <= inicio;
+	
+--Esto significa que por alguna razon el carro hecho reversa)? se regresa al estado anterior
+		elsif (FroNT_SENSOR ='1') and (BACK_SENSOR = '0') then
+			next_state <= Aprovado;
+		
+--El carro esta parado en medio de los dos sensores o solo en bacK_SENSOR
+		else 
+			next_state <= Ingreso;
+		end if;
+		
+--QUINTO ESTADO, cuando fallo en la contraseña	
+	when Desaprovado =>
+		
+--Conteo de tiempo para regresar a inicio
+		if (Conteo ='1') then
+			next_state <= Inicio;
+		else
+			next_state <= Desaprovado;
+		end if;
+		
+--Por si pasa algo que no deberia regresa al inicio
+		when others => next_state <= inicio;
+	
+	end case;
+end process;
+
+--Logica para las salidas
+salida : process (ant_state, FRONT_SENSOR, BACK_SENSOR)
+begin 
+	case (ant_state) is
+	
+	--Primer estado, si el sensor frontal detecta algo pasara al siguiente	
+	when inicio =>
+	if (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then 
+		LED_V <= '0'; LED_R <= '1', Momentocontra ='1';
+	else
+		LED_V <= '0'; LED_R <= '0', MomentoContra='0',Correcta='0', Incorrecta='0', Conteo = '0';
+	end if;
+	
+-- SEGUNDO ESTADO, Cuando llega ingresa contraseña
+--SEGUNDO ESTADO, ingresar la contraseña 
+	
+
+
+		
+--Por si el carro se va sin completar los 3 intenttos
+	elsif (FRONT_SENSOR = '0') then
+		next_state <= Inicio;
+
+--Regresa a si mismo para esperar una orden
+	else 
+		next_state <= Contrasena;
+	end if;
+	
+	when Contrasena =>
+	
+-- si la segunda maquina devuelve correcta se va al estado aprovado
+	if (FRONT_SENSOR = '1') and (Correcta = '1') and (Incorrecta='0') then
+		LED_V <= '1'; LED_R <= '0', AbrirPuerta <= '1', CerrarPuerta <= '0';
+		
+-- Si la segunda maquina devuelve un incorrecta se va al estado desaprovado		
+	elsif (FRONT_SENSOR = '1') and (Correcta = '0') and (Incorrecta='1') then
+		LED_V <= '0'; LED_R <= '1', AbrirPuerta <= '0', CerrarPuerta <= '1';
+	else
+		LED_V <= '0'; LED_R <= '1';
+	end if;
+	when segundo =>
+	if (contra='0') and (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then 
+		LED_V <= '0'; LED_R <= '1';
+	elsif 
+	(contra='1') and (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then
+		LED_V <= '1'; LED_R <= '0';
+	else 
+		LED_V <= '0'; LED_R <= '1';
+	end if;
+	when tercero =>
+	if (contra='0') and (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then
+		LED_V <= '0'; LED_R <= '1';
+	elsif 
+	(contra='1') and (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then
+		LED_V <= '1'; LED_R <= '0';
+	else
+		LED_V <= '0'; LED_R <= '1';
+	end if;
+	when aprovado =>
+	if(contra='1') and (FRONT_SENSOR = '1') and (BACK_SENSOR = '0') then 
+		LED_V <= '1'; LED_R <= '0';
+	else
+		LED_V <= '0'; LED_R <= '0';
+	end if;
+	when ingreso =>
+	if (contra='1') and (FRONT_SENSOR = '0') and (BACK_SENSOR = '0') then
+		LED_V <= '1'; LED_R <= '0';
+	else 
+		LED_V <= '1'; LED_R <= '0';
+	end if;
+	when others => LED_V <= '0'; LED_R <= '1';
+	end case;
+end process;
+end arq;

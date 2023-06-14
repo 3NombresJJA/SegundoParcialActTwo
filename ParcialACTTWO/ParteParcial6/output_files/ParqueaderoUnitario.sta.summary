@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'senalReloj'
+Slack : -3.586
+TNS   : -86.481
+
+Type  : Slow 1200mV 85C Model Setup 'Entrada'
+Slack : -1.864
+TNS   : -9.784
+
+Type  : Slow 1200mV 85C Model Hold 'senalReloj'
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Entrada'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'senalReloj'
+Slack : -1.378
+TNS   : -13.811
+
+Type  : Slow 1200mV 85C Model Removal 'senalReloj'
+Slack : -0.543
+TNS   : -3.976
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'senalReloj'
+Slack : -3.000
+TNS   : -64.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Entrada'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Setup 'senalReloj'
+Slack : -3.085
+TNS   : -71.160
+
+Type  : Slow 1200mV 0C Model Setup 'Entrada'
+Slack : -1.616
+TNS   : -8.034
+
+Type  : Slow 1200mV 0C Model Hold 'senalReloj'
+Slack : 0.301
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Entrada'
+Slack : 0.345
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'senalReloj'
+Slack : -1.188
+TNS   : -11.853
+
+Type  : Slow 1200mV 0C Model Removal 'senalReloj'
+Slack : -0.513
+TNS   : -3.804
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'senalReloj'
+Slack : -3.000
+TNS   : -64.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Entrada'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Setup 'senalReloj'
+Slack : -1.593
+TNS   : -32.150
+
+Type  : Fast 1200mV 0C Model Setup 'Entrada'
+Slack : -0.606
+TNS   : -2.436
+
+Type  : Fast 1200mV 0C Model Hold 'senalReloj'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Entrada'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'senalReloj'
+Slack : -0.869
+TNS   : -9.465
+
+Type  : Fast 1200mV 0C Model Removal 'senalReloj'
+Slack : -0.383
+TNS   : -2.927
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'senalReloj'
+Slack : -3.000
+TNS   : -67.131
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Entrada'
+Slack : -3.000
+TNS   : -3.000
+
+------------------------------------------------------------

@@ -1,0 +1,15 @@
+
+State Machine - |ParteParqueadero|EstadoAnte
+Name EstadoAnte.Fallido EstadoAnte.Tercero EstadoAnte.Segundo EstadoAnte.Primero 
+EstadoAnte.Primero 0 0 0 0 
+EstadoAnte.Segundo 0 0 1 1 
+EstadoAnte.Tercero 0 1 0 1 
+EstadoAnte.Fallido 1 0 0 1 
+
+State Machine - |ParteParqueadero|ant_state
+Name ant_state.ingreso ant_state.Desaprovado ant_state.aprovado ant_state.Contrasena ant_state.inicio 
+ant_state.inicio 0 0 0 0 0 
+ant_state.Contrasena 0 0 0 1 1 
+ant_state.aprovado 0 0 1 0 1 
+ant_state.Desaprovado 0 1 0 0 1 
+ant_state.ingreso 1 0 0 0 1 

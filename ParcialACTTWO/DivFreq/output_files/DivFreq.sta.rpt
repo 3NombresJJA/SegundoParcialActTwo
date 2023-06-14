@@ -1,0 +1,1637 @@
+TimeQuest Timing Analyzer report for DivFreq
+Tue Jun 13 10:21:43 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'Clk'
+ 13. Slow 1200mV 85C Model Hold: 'Clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'Clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'Clk'
+ 27. Slow 1200mV 0C Model Hold: 'Clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'Clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'Clk'
+ 40. Fast 1200mV 0C Model Hold: 'Clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'Clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; DivFreq                                            ;
+; Device Family      ; Cyclone III                                        ;
+; Device Name        ; EP3C16F484C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 205.51 MHz ; 205.51 MHz      ; Clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; Clk   ; -3.866 ; -81.369            ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; Clk   ; 0.344 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; Clk   ; -3.000 ; -36.000                          ;
++-------+--------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Clk'                                                                                               ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -3.866 ; \ContadorSeg:count2[1]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.159      ;
+; -3.866 ; \ContadorSeg:count2[1]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.159      ;
+; -3.866 ; \ContadorSeg:count2[1]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.159      ;
+; -3.866 ; \ContadorSeg:count2[1]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.159      ;
+; -3.808 ; \ContadorSeg:count2[6]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.735      ;
+; -3.808 ; \ContadorSeg:count2[6]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.735      ;
+; -3.808 ; \ContadorSeg:count2[6]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.735      ;
+; -3.808 ; \ContadorSeg:count2[6]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.735      ;
+; -3.785 ; \ContadorSeg:count2[0]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.078      ;
+; -3.785 ; \ContadorSeg:count2[0]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.078      ;
+; -3.785 ; \ContadorSeg:count2[0]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.078      ;
+; -3.785 ; \ContadorSeg:count2[0]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.078      ;
+; -3.754 ; \ContadorSeg:count2[3]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.047      ;
+; -3.754 ; \ContadorSeg:count2[3]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.047      ;
+; -3.754 ; \ContadorSeg:count2[3]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.047      ;
+; -3.754 ; \ContadorSeg:count2[3]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 5.047      ;
+; -3.673 ; \ContadorSeg:count2[2]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.966      ;
+; -3.673 ; \ContadorSeg:count2[2]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.966      ;
+; -3.673 ; \ContadorSeg:count2[2]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.966      ;
+; -3.673 ; \ContadorSeg:count2[2]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.966      ;
+; -3.659 ; \ContadorSeg:count2[11] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.586      ;
+; -3.659 ; \ContadorSeg:count2[11] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.586      ;
+; -3.659 ; \ContadorSeg:count2[11] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.586      ;
+; -3.659 ; \ContadorSeg:count2[11] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.068     ; 4.586      ;
+; -3.638 ; \ContadorSeg:count2[5]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.931      ;
+; -3.638 ; \ContadorSeg:count2[5]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.931      ;
+; -3.638 ; \ContadorSeg:count2[5]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.931      ;
+; -3.638 ; \ContadorSeg:count2[5]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.931      ;
+; -3.580 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.865      ;
+; -3.579 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.864      ;
+; -3.556 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.488      ;
+; -3.556 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.488      ;
+; -3.555 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.487      ;
+; -3.555 ; \ContadorSeg:count2[4]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.848      ;
+; -3.555 ; \ContadorSeg:count2[4]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.848      ;
+; -3.555 ; \ContadorSeg:count2[4]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.848      ;
+; -3.555 ; \ContadorSeg:count2[4]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.848      ;
+; -3.552 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.484      ;
+; -3.552 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.484      ;
+; -3.537 ; \ContadorSeg:count2[13] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.067     ; 4.465      ;
+; -3.537 ; \ContadorSeg:count2[13] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.067     ; 4.465      ;
+; -3.537 ; \ContadorSeg:count2[13] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.067     ; 4.465      ;
+; -3.537 ; \ContadorSeg:count2[13] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.067     ; 4.465      ;
+; -3.532 ; \ContadorSeg:count2[9]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.825      ;
+; -3.532 ; \ContadorSeg:count2[9]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.825      ;
+; -3.532 ; \ContadorSeg:count2[9]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.825      ;
+; -3.532 ; \ContadorSeg:count2[9]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.825      ;
+; -3.522 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.076     ; 4.441      ;
+; -3.521 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.076     ; 4.440      ;
+; -3.517 ; \ContadorSeg:count2[7]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.810      ;
+; -3.517 ; \ContadorSeg:count2[7]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.810      ;
+; -3.517 ; \ContadorSeg:count2[7]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.810      ;
+; -3.517 ; \ContadorSeg:count2[7]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.810      ;
+; -3.510 ; \ContadorSeg:count2[1]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.272      ; 4.777      ;
+; -3.499 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.784      ;
+; -3.498 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.783      ;
+; -3.498 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 4.064      ;
+; -3.498 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 4.064      ;
+; -3.497 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 4.063      ;
+; -3.494 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 4.060      ;
+; -3.494 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 4.060      ;
+; -3.475 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.407      ;
+; -3.475 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.407      ;
+; -3.474 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.406      ;
+; -3.471 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.403      ;
+; -3.471 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.403      ;
+; -3.468 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.753      ;
+; -3.467 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.752      ;
+; -3.452 ; \ContadorSeg:count2[8]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.745      ;
+; -3.452 ; \ContadorSeg:count2[8]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.745      ;
+; -3.452 ; \ContadorSeg:count2[8]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.745      ;
+; -3.452 ; \ContadorSeg:count2[8]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.298      ; 4.745      ;
+; -3.452 ; \ContadorSeg:count2[6]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; -0.094     ; 4.353      ;
+; -3.444 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.376      ;
+; -3.444 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.376      ;
+; -3.443 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.375      ;
+; -3.440 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.372      ;
+; -3.440 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.372      ;
+; -3.429 ; \ContadorSeg:count2[0]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.272      ; 4.696      ;
+; -3.405 ; \ContadorSeg:count2[1]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; 0.287      ; 4.687      ;
+; -3.398 ; \ContadorSeg:count2[3]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.272      ; 4.665      ;
+; -3.387 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.672      ;
+; -3.386 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.671      ;
+; -3.373 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.076     ; 4.292      ;
+; -3.372 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.076     ; 4.291      ;
+; -3.363 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.295      ;
+; -3.363 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.295      ;
+; -3.362 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.294      ;
+; -3.359 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.291      ;
+; -3.359 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.063     ; 4.291      ;
+; -3.353 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 1.000        ; 0.289      ; 4.637      ;
+; -3.352 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 1.000        ; 0.289      ; 4.636      ;
+; -3.352 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.637      ;
+; -3.351 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 1.000        ; 0.289      ; 4.635      ;
+; -3.351 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.290      ; 4.636      ;
+; -3.349 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 3.915      ;
+; -3.349 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 3.915      ;
+; -3.348 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 3.914      ;
+; -3.347 ; \ContadorSeg:count2[6]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; -0.079     ; 4.263      ;
+; -3.345 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.429     ; 3.911      ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Clk'                                                                                               ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; 0.344 ; Contador[2]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.076      ; 0.577      ;
+; 0.344 ; Contador[1]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.076      ; 0.577      ;
+; 0.344 ; Contador[0]             ; Contador[0]             ; Clk          ; Clk         ; 0.000        ; 0.076      ; 0.577      ;
+; 0.345 ; Contador[3]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.075      ; 0.577      ;
+; 0.476 ; Contador[3]             ; Contador2[3]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.103      ; 0.736      ;
+; 0.509 ; Contador[2]             ; Contador2[2]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.088      ; 0.754      ;
+; 0.517 ; Contador[1]             ; Contador2[1]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.088      ; 0.762      ;
+; 0.548 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.767      ;
+; 0.548 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.767      ;
+; 0.549 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.767      ;
+; 0.549 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.768      ;
+; 0.550 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.768      ;
+; 0.550 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 0.768      ;
+; 0.551 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.770      ;
+; 0.551 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.770      ;
+; 0.553 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.772      ;
+; 0.568 ; Contador[0]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.076      ; 0.801      ;
+; 0.569 ; Contador[0]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.076      ; 0.802      ;
+; 0.572 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[0]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.791      ;
+; 0.678 ; Contador[0]             ; Contador2[0]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.088      ; 0.923      ;
+; 0.684 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.903      ;
+; 0.687 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.906      ;
+; 0.687 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 0.906      ;
+; 0.823 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.042      ;
+; 0.823 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.042      ;
+; 0.825 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.044      ;
+; 0.837 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.056      ;
+; 0.839 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.058      ;
+; 0.839 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.058      ;
+; 0.840 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.059      ;
+; 0.841 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.060      ;
+; 0.933 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.152      ;
+; 0.933 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.152      ;
+; 0.934 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.152      ;
+; 0.935 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.154      ;
+; 0.935 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.154      ;
+; 0.935 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.154      ;
+; 0.935 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.154      ;
+; 0.937 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.156      ;
+; 0.949 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.168      ;
+; 0.951 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.536      ;
+; 0.951 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.170      ;
+; 0.952 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.537      ;
+; 0.952 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.171      ;
+; 0.953 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.172      ;
+; 0.954 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.173      ;
+; 0.956 ; Contador[0]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.060      ; 1.173      ;
+; 0.958 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.177      ;
+; 0.969 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.554      ;
+; 0.975 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.194      ;
+; 0.977 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.196      ;
+; 0.998 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[22] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.216      ;
+; 1.011 ; \ContadorSeg:count2[22] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.229      ;
+; 1.019 ; Contador[2]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.060      ; 1.236      ;
+; 1.024 ; Contador[1]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.060      ; 1.241      ;
+; 1.030 ; \ContadorSeg:count2[13] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.076      ; 1.263      ;
+; 1.030 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.076      ; 1.263      ;
+; 1.031 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.076      ; 1.264      ;
+; 1.033 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.076      ; 1.266      ;
+; 1.045 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.264      ;
+; 1.047 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.266      ;
+; 1.047 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.266      ;
+; 1.049 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.268      ;
+; 1.049 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.268      ;
+; 1.061 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.280      ;
+; 1.063 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.282      ;
+; 1.063 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.282      ;
+; 1.064 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.649      ;
+; 1.064 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.283      ;
+; 1.066 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.285      ;
+; 1.078 ; \ContadorSeg:count2[21] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.296      ;
+; 1.078 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.663      ;
+; 1.120 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.338      ;
+; 1.127 ; \ContadorSeg:count2[20] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.345      ;
+; 1.132 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.350      ;
+; 1.148 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.733      ;
+; 1.149 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.734      ;
+; 1.157 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.376      ;
+; 1.159 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.378      ;
+; 1.159 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.378      ;
+; 1.159 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.377      ;
+; 1.161 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.380      ;
+; 1.173 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.392      ;
+; 1.174 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.759      ;
+; 1.175 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.394      ;
+; 1.175 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.394      ;
+; 1.177 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.076      ; 1.410      ;
+; 1.177 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.062      ; 1.396      ;
+; 1.181 ; \ContadorSeg:count2[24] ; \ContadorSeg:count2[24] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.399      ;
+; 1.186 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.404      ;
+; 1.191 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; -0.290     ; 1.058      ;
+; 1.192 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; -0.291     ; 1.058      ;
+; 1.192 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.777      ;
+; 1.193 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; -0.290     ; 1.060      ;
+; 1.193 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; -0.291     ; 1.059      ;
+; 1.201 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.060      ; 1.418      ;
+; 1.217 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.427      ; 1.801      ;
+; 1.218 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.427      ; 1.802      ;
+; 1.237 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.428      ; 1.822      ;
+; 1.240 ; \ContadorSeg:count2[18] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.061      ; 1.458      ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'Clk'                                                            ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                      ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; Clk   ; Rise       ; Clk                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; 0.167  ; 0.351        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]                 ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]                 ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]                 ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[3]                 ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; 0.186  ; 0.370        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0|clk       ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0|clk       ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0|clk       ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0|clk       ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]|clk ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]|clk ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]|clk ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]|clk ;
+; 0.329  ; 0.329        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]|clk  ;
+; 0.337  ; 0.337        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]|clk             ;
+; 0.337  ; 0.337        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]|clk             ;
+; 0.337  ; 0.337        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]|clk             ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Clk~input|o                 ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[3]|clk             ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]|clk ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]|clk  ;
+; 0.347  ; 0.347        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[9]|clk  ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]|clk ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]|clk ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.674 ; 0.808 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.430 ; 0.294 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 5.723 ; 5.737 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 5.723 ; 5.737 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 5.676 ; 5.668 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 5.683 ; 5.674 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 5.688 ; 5.701 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 5.553 ; 5.543 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 5.598 ; 5.610 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 5.553 ; 5.543 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 5.560 ; 5.550 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 5.563 ; 5.574 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary               ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 229.2 MHz ; 229.2 MHz       ; Clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; Clk   ; -3.363 ; -68.798           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; Clk   ; 0.299 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; Clk   ; -3.000 ; -36.000                         ;
++-------+--------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Clk'                                                                                                ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -3.363 ; \ContadorSeg:count2[1]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.629      ;
+; -3.363 ; \ContadorSeg:count2[1]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.629      ;
+; -3.363 ; \ContadorSeg:count2[1]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.629      ;
+; -3.363 ; \ContadorSeg:count2[1]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.629      ;
+; -3.335 ; \ContadorSeg:count2[6]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.268      ;
+; -3.335 ; \ContadorSeg:count2[6]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.268      ;
+; -3.335 ; \ContadorSeg:count2[6]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.268      ;
+; -3.335 ; \ContadorSeg:count2[6]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.268      ;
+; -3.295 ; \ContadorSeg:count2[0]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.561      ;
+; -3.295 ; \ContadorSeg:count2[0]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.561      ;
+; -3.295 ; \ContadorSeg:count2[0]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.561      ;
+; -3.295 ; \ContadorSeg:count2[0]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.561      ;
+; -3.266 ; \ContadorSeg:count2[3]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.532      ;
+; -3.266 ; \ContadorSeg:count2[3]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.532      ;
+; -3.266 ; \ContadorSeg:count2[3]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.532      ;
+; -3.266 ; \ContadorSeg:count2[3]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.532      ;
+; -3.202 ; \ContadorSeg:count2[11] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.135      ;
+; -3.202 ; \ContadorSeg:count2[11] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.135      ;
+; -3.202 ; \ContadorSeg:count2[11] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.135      ;
+; -3.202 ; \ContadorSeg:count2[11] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.062     ; 4.135      ;
+; -3.200 ; \ContadorSeg:count2[2]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.466      ;
+; -3.200 ; \ContadorSeg:count2[2]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.466      ;
+; -3.200 ; \ContadorSeg:count2[2]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.466      ;
+; -3.200 ; \ContadorSeg:count2[2]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.466      ;
+; -3.166 ; \ContadorSeg:count2[5]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.432      ;
+; -3.166 ; \ContadorSeg:count2[5]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.432      ;
+; -3.166 ; \ContadorSeg:count2[5]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.432      ;
+; -3.166 ; \ContadorSeg:count2[5]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.432      ;
+; -3.097 ; \ContadorSeg:count2[13] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 4.031      ;
+; -3.097 ; \ContadorSeg:count2[13] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 4.031      ;
+; -3.097 ; \ContadorSeg:count2[13] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 4.031      ;
+; -3.097 ; \ContadorSeg:count2[13] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 4.031      ;
+; -3.096 ; \ContadorSeg:count2[4]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.362      ;
+; -3.096 ; \ContadorSeg:count2[4]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.362      ;
+; -3.096 ; \ContadorSeg:count2[4]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.362      ;
+; -3.096 ; \ContadorSeg:count2[4]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.362      ;
+; -3.084 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.344      ;
+; -3.084 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.344      ;
+; -3.077 ; \ContadorSeg:count2[9]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.343      ;
+; -3.077 ; \ContadorSeg:count2[9]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.343      ;
+; -3.077 ; \ContadorSeg:count2[9]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.343      ;
+; -3.077 ; \ContadorSeg:count2[9]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.343      ;
+; -3.061 ; \ContadorSeg:count2[7]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.327      ;
+; -3.061 ; \ContadorSeg:count2[7]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.327      ;
+; -3.061 ; \ContadorSeg:count2[7]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.327      ;
+; -3.061 ; \ContadorSeg:count2[7]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.327      ;
+; -3.056 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.068     ; 3.983      ;
+; -3.056 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.068     ; 3.983      ;
+; -3.042 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.981      ;
+; -3.042 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.981      ;
+; -3.041 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.980      ;
+; -3.037 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.976      ;
+; -3.035 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.974      ;
+; -3.017 ; \ContadorSeg:count2[1]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.246      ; 4.258      ;
+; -3.016 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.276      ;
+; -3.016 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.276      ;
+; -3.014 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.620      ;
+; -3.014 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.620      ;
+; -3.013 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.619      ;
+; -3.009 ; \ContadorSeg:count2[8]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.275      ;
+; -3.009 ; \ContadorSeg:count2[8]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.275      ;
+; -3.009 ; \ContadorSeg:count2[8]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.275      ;
+; -3.009 ; \ContadorSeg:count2[8]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.275      ;
+; -3.009 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.615      ;
+; -3.007 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.613      ;
+; -2.989 ; \ContadorSeg:count2[6]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; -0.087     ; 3.897      ;
+; -2.987 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.247      ;
+; -2.987 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.247      ;
+; -2.974 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.913      ;
+; -2.974 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.913      ;
+; -2.973 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.912      ;
+; -2.969 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.908      ;
+; -2.967 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.906      ;
+; -2.949 ; \ContadorSeg:count2[0]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.246      ; 4.190      ;
+; -2.945 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.884      ;
+; -2.945 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.884      ;
+; -2.944 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.883      ;
+; -2.940 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.879      ;
+; -2.938 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.877      ;
+; -2.929 ; \ContadorSeg:count2[14] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 3.863      ;
+; -2.929 ; \ContadorSeg:count2[14] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 3.863      ;
+; -2.929 ; \ContadorSeg:count2[14] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 3.863      ;
+; -2.929 ; \ContadorSeg:count2[14] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.061     ; 3.863      ;
+; -2.923 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.068     ; 3.850      ;
+; -2.923 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.068     ; 3.850      ;
+; -2.921 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.181      ;
+; -2.921 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.181      ;
+; -2.920 ; \ContadorSeg:count2[3]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.246      ; 4.161      ;
+; -2.909 ; \ContadorSeg:count2[10] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.175      ;
+; -2.909 ; \ContadorSeg:count2[10] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.175      ;
+; -2.909 ; \ContadorSeg:count2[10] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.175      ;
+; -2.909 ; \ContadorSeg:count2[10] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.271      ; 4.175      ;
+; -2.887 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.147      ;
+; -2.887 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.265      ; 4.147      ;
+; -2.884 ; \ContadorSeg:count2[1]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; 0.263      ; 4.142      ;
+; -2.881 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.487      ;
+; -2.881 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.487      ;
+; -2.880 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.389     ; 3.486      ;
+; -2.879 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.818      ;
+; -2.879 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.056     ; 3.818      ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Clk'                                                                                                ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; 0.299 ; Contador[3]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.511      ;
+; 0.299 ; Contador[2]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.511      ;
+; 0.299 ; Contador[1]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.511      ;
+; 0.299 ; Contador[0]             ; Contador[0]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.511      ;
+; 0.428 ; Contador[3]             ; Contador2[3]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.094      ; 0.666      ;
+; 0.465 ; Contador[2]             ; Contador2[2]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.077      ; 0.686      ;
+; 0.475 ; Contador[1]             ; Contador2[1]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.077      ; 0.696      ;
+; 0.492 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.691      ;
+; 0.492 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.691      ;
+; 0.493 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.692      ;
+; 0.493 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.692      ;
+; 0.493 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.692      ;
+; 0.494 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.693      ;
+; 0.495 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.694      ;
+; 0.496 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.695      ;
+; 0.498 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.697      ;
+; 0.509 ; Contador[0]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.721      ;
+; 0.509 ; Contador[0]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.068      ; 0.721      ;
+; 0.513 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[0]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.712      ;
+; 0.621 ; Contador[0]             ; Contador2[0]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.077      ; 0.842      ;
+; 0.625 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.824      ;
+; 0.625 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.824      ;
+; 0.627 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.826      ;
+; 0.736 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.935      ;
+; 0.737 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.936      ;
+; 0.741 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.940      ;
+; 0.743 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.942      ;
+; 0.746 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.945      ;
+; 0.747 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.946      ;
+; 0.750 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.949      ;
+; 0.753 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 0.952      ;
+; 0.825 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.024      ;
+; 0.825 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.024      ;
+; 0.826 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.025      ;
+; 0.829 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.028      ;
+; 0.830 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.029      ;
+; 0.832 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.031      ;
+; 0.833 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.032      ;
+; 0.836 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.035      ;
+; 0.839 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.038      ;
+; 0.842 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.041      ;
+; 0.843 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.042      ;
+; 0.848 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.380      ;
+; 0.849 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.048      ;
+; 0.850 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.049      ;
+; 0.851 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.383      ;
+; 0.865 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.397      ;
+; 0.871 ; Contador[0]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.051      ; 1.066      ;
+; 0.872 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.071      ;
+; 0.874 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.073      ;
+; 0.881 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.080      ;
+; 0.908 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[22] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 1.106      ;
+; 0.909 ; \ContadorSeg:count2[22] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.108      ;
+; 0.922 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.121      ;
+; 0.925 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.124      ;
+; 0.926 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.125      ;
+; 0.926 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.068      ; 1.138      ;
+; 0.927 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.068      ; 1.139      ;
+; 0.928 ; \ContadorSeg:count2[13] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.068      ; 1.140      ;
+; 0.928 ; Contador[2]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.051      ; 1.123      ;
+; 0.930 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.068      ; 1.142      ;
+; 0.932 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.131      ;
+; 0.932 ; Contador[1]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.051      ; 1.127      ;
+; 0.933 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.132      ;
+; 0.935 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.134      ;
+; 0.938 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.137      ;
+; 0.939 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.138      ;
+; 0.942 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.141      ;
+; 0.946 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.145      ;
+; 0.948 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.480      ;
+; 0.957 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.489      ;
+; 0.966 ; \ContadorSeg:count2[21] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.165      ;
+; 1.009 ; \ContadorSeg:count2[20] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.208      ;
+; 1.015 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.214      ;
+; 1.018 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.217      ;
+; 1.018 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.217      ;
+; 1.022 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.221      ;
+; 1.025 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.224      ;
+; 1.027 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 1.225      ;
+; 1.029 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.228      ;
+; 1.031 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.230      ;
+; 1.034 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.233      ;
+; 1.038 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.570      ;
+; 1.038 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.570      ;
+; 1.038 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.237      ;
+; 1.040 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.572      ;
+; 1.041 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.240      ;
+; 1.056 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.588      ;
+; 1.056 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.255      ;
+; 1.064 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.068      ; 1.276      ;
+; 1.064 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; -0.265     ; 0.943      ;
+; 1.064 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; -0.265     ; 0.943      ;
+; 1.067 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; -0.265     ; 0.946      ;
+; 1.067 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 1.265      ;
+; 1.071 ; \ContadorSeg:count2[24] ; \ContadorSeg:count2[24] ; Clk          ; Clk         ; 0.000        ; 0.054      ; 1.269      ;
+; 1.071 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; -0.265     ; 0.950      ;
+; 1.090 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.387      ; 1.621      ;
+; 1.090 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.387      ; 1.621      ;
+; 1.102 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.388      ; 1.634      ;
+; 1.107 ; \ContadorSeg:count2[18] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.055      ; 1.306      ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'Clk'                                                             ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                      ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; Clk   ; Rise       ; Clk                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; 0.175  ; 0.359        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; 0.176  ; 0.360        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; 0.176  ; 0.360        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; 0.176  ; 0.360        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; 0.176  ; 0.360        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; 0.176  ; 0.360        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; 0.183  ; 0.367        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]                 ;
+; 0.183  ; 0.367        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]                 ;
+; 0.183  ; 0.367        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]                 ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[3]                 ;
+; 0.335  ; 0.335        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0|clk       ;
+; 0.335  ; 0.335        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0|clk       ;
+; 0.335  ; 0.335        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0|clk       ;
+; 0.335  ; 0.335        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0|clk       ;
+; 0.336  ; 0.336        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]|clk ;
+; 0.336  ; 0.336        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]|clk ;
+; 0.336  ; 0.336        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]|clk ;
+; 0.336  ; 0.336        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]|clk ;
+; 0.336  ; 0.336        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]|clk  ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Clk~input|o                 ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[24]|clk ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]|clk  ;
+; 0.341  ; 0.341        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[9]|clk  ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]|clk             ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]|clk             ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]|clk             ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.619 ; 0.816 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.375 ; 0.188 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 5.428 ; 5.411 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 5.428 ; 5.411 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 5.377 ; 5.364 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 5.384 ; 5.370 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 5.390 ; 5.374 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 5.267 ; 5.253 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 5.317 ; 5.298 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 5.267 ; 5.253 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 5.274 ; 5.259 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 5.278 ; 5.261 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; Clk   ; -1.735 ; -32.353           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; Clk   ; 0.180 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; Clk   ; -3.000 ; -38.208                         ;
++-------+--------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Clk'                                                                                                ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -1.735 ; \ContadorSeg:count2[1]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.880      ;
+; -1.735 ; \ContadorSeg:count2[1]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.880      ;
+; -1.735 ; \ContadorSeg:count2[1]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.880      ;
+; -1.735 ; \ContadorSeg:count2[1]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.880      ;
+; -1.689 ; \ContadorSeg:count2[0]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.834      ;
+; -1.689 ; \ContadorSeg:count2[0]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.834      ;
+; -1.689 ; \ContadorSeg:count2[0]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.834      ;
+; -1.689 ; \ContadorSeg:count2[0]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.834      ;
+; -1.684 ; \ContadorSeg:count2[6]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.632      ;
+; -1.684 ; \ContadorSeg:count2[6]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.632      ;
+; -1.684 ; \ContadorSeg:count2[6]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.632      ;
+; -1.684 ; \ContadorSeg:count2[6]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.632      ;
+; -1.670 ; \ContadorSeg:count2[3]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.815      ;
+; -1.670 ; \ContadorSeg:count2[3]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.815      ;
+; -1.670 ; \ContadorSeg:count2[3]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.815      ;
+; -1.670 ; \ContadorSeg:count2[3]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.815      ;
+; -1.622 ; \ContadorSeg:count2[2]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.767      ;
+; -1.622 ; \ContadorSeg:count2[2]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.767      ;
+; -1.622 ; \ContadorSeg:count2[2]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.767      ;
+; -1.622 ; \ContadorSeg:count2[2]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.767      ;
+; -1.603 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.743      ;
+; -1.603 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.743      ;
+; -1.603 ; \ContadorSeg:count2[5]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.748      ;
+; -1.603 ; \ContadorSeg:count2[5]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.748      ;
+; -1.603 ; \ContadorSeg:count2[5]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.748      ;
+; -1.603 ; \ContadorSeg:count2[5]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.748      ;
+; -1.600 ; \ContadorSeg:count2[11] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.548      ;
+; -1.600 ; \ContadorSeg:count2[11] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.548      ;
+; -1.600 ; \ContadorSeg:count2[11] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.548      ;
+; -1.600 ; \ContadorSeg:count2[11] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.039     ; 2.548      ;
+; -1.557 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.697      ;
+; -1.557 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.697      ;
+; -1.555 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.505      ;
+; -1.554 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.504      ;
+; -1.554 ; \ContadorSeg:count2[4]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.699      ;
+; -1.554 ; \ContadorSeg:count2[4]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.699      ;
+; -1.554 ; \ContadorSeg:count2[4]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.699      ;
+; -1.554 ; \ContadorSeg:count2[4]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.699      ;
+; -1.553 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.503      ;
+; -1.553 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.503      ;
+; -1.553 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.503      ;
+; -1.552 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.044     ; 2.495      ;
+; -1.552 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.044     ; 2.495      ;
+; -1.543 ; \ContadorSeg:count2[9]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.688      ;
+; -1.543 ; \ContadorSeg:count2[9]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.688      ;
+; -1.543 ; \ContadorSeg:count2[9]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.688      ;
+; -1.543 ; \ContadorSeg:count2[9]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.688      ;
+; -1.541 ; \ContadorSeg:count2[1]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.144      ; 2.672      ;
+; -1.538 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.678      ;
+; -1.538 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.678      ;
+; -1.530 ; \ContadorSeg:count2[7]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.675      ;
+; -1.530 ; \ContadorSeg:count2[7]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.675      ;
+; -1.530 ; \ContadorSeg:count2[7]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.675      ;
+; -1.530 ; \ContadorSeg:count2[7]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.675      ;
+; -1.527 ; \ContadorSeg:count2[13] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.038     ; 2.476      ;
+; -1.527 ; \ContadorSeg:count2[13] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.038     ; 2.476      ;
+; -1.527 ; \ContadorSeg:count2[13] ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.038     ; 2.476      ;
+; -1.527 ; \ContadorSeg:count2[13] ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; -0.038     ; 2.476      ;
+; -1.509 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.459      ;
+; -1.508 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.458      ;
+; -1.507 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.457      ;
+; -1.507 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.457      ;
+; -1.507 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.457      ;
+; -1.504 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.234     ; 2.257      ;
+; -1.503 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.234     ; 2.256      ;
+; -1.502 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.234     ; 2.255      ;
+; -1.502 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.234     ; 2.255      ;
+; -1.502 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.234     ; 2.255      ;
+; -1.495 ; \ContadorSeg:count2[0]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.144      ; 2.626      ;
+; -1.494 ; \ContadorSeg:count2[8]  ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.639      ;
+; -1.494 ; \ContadorSeg:count2[8]  ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.639      ;
+; -1.494 ; \ContadorSeg:count2[8]  ; Contador2[1]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.639      ;
+; -1.494 ; \ContadorSeg:count2[8]  ; Contador2[0]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.639      ;
+; -1.490 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.630      ;
+; -1.490 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.630      ;
+; -1.490 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.440      ;
+; -1.490 ; \ContadorSeg:count2[6]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; -0.053     ; 2.424      ;
+; -1.489 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.439      ;
+; -1.488 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.438      ;
+; -1.488 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.438      ;
+; -1.488 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.438      ;
+; -1.486 ; \ContadorSeg:count2[1]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; 0.151      ; 2.624      ;
+; -1.476 ; \ContadorSeg:count2[3]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.144      ; 2.607      ;
+; -1.471 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.611      ;
+; -1.471 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.611      ;
+; -1.468 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 1.000        ; -0.044     ; 2.411      ;
+; -1.468 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 1.000        ; -0.044     ; 2.411      ;
+; -1.455 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.595      ;
+; -1.455 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.595      ;
+; -1.454 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 1.000        ; 0.153      ; 2.594      ;
+; -1.442 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[12] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.392      ;
+; -1.441 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[21] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.391      ;
+; -1.440 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[18] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.390      ;
+; -1.440 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.390      ;
+; -1.440 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[20] ; Clk          ; Clk         ; 1.000        ; -0.037     ; 2.390      ;
+; -1.440 ; \ContadorSeg:count2[0]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; 0.151      ; 2.578      ;
+; -1.435 ; \ContadorSeg:count2[6]  ; Contador[0]             ; Clk          ; Clk         ; 1.000        ; -0.046     ; 2.376      ;
+; -1.428 ; \ContadorSeg:count2[2]  ; Contador[3]             ; Clk          ; Clk         ; 1.000        ; 0.144      ; 2.559      ;
+; -1.426 ; \ContadorSeg:count2[10] ; Contador2[3]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.571      ;
+; -1.426 ; \ContadorSeg:count2[10] ; Contador2[2]~reg0       ; Clk          ; Clk         ; 1.000        ; 0.158      ; 2.571      ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Clk'                                                                                                ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; 0.180 ; Contador[3]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.180 ; Contador[2]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.180 ; Contador[1]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.180 ; Contador[0]             ; Contador[0]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.248 ; Contador[3]             ; Contador2[3]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.057      ; 0.389      ;
+; 0.257 ; Contador[2]             ; Contador2[2]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.050      ; 0.391      ;
+; 0.266 ; Contador[1]             ; Contador2[1]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.050      ; 0.400      ;
+; 0.292 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.412      ;
+; 0.292 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.412      ;
+; 0.293 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.293 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.413      ;
+; 0.294 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.414      ;
+; 0.294 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.414      ;
+; 0.305 ; Contador[0]             ; Contador[1]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.432      ;
+; 0.306 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[0]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Contador[0]             ; Contador[2]             ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.433      ;
+; 0.347 ; Contador[0]             ; Contador2[0]~reg0       ; Clk          ; Clk         ; 0.000        ; 0.050      ; 0.481      ;
+; 0.358 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.478      ;
+; 0.361 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.481      ;
+; 0.361 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.481      ;
+; 0.441 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.561      ;
+; 0.442 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.562      ;
+; 0.442 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.562      ;
+; 0.451 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.571      ;
+; 0.452 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.572      ;
+; 0.453 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[1]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.573      ;
+; 0.454 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.574      ;
+; 0.456 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[2]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.576      ;
+; 0.501 ; Contador[0]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.621      ;
+; 0.504 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.624      ;
+; 0.504 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.624      ;
+; 0.505 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.625      ;
+; 0.505 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.625      ;
+; 0.506 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.626      ;
+; 0.507 ; \ContadorSeg:count2[9]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.627      ;
+; 0.507 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.627      ;
+; 0.508 ; \ContadorSeg:count2[7]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.628      ;
+; 0.509 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.629      ;
+; 0.511 ; \ContadorSeg:count2[15] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.828      ;
+; 0.513 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.830      ;
+; 0.517 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.637      ;
+; 0.518 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.638      ;
+; 0.519 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[3]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.639      ;
+; 0.519 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.639      ;
+; 0.521 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.641      ;
+; 0.522 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[4]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.642      ;
+; 0.522 ; \ContadorSeg:count2[8]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.642      ;
+; 0.525 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.842      ;
+; 0.526 ; \ContadorSeg:count2[23] ; \ContadorSeg:count2[22] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.645      ;
+; 0.534 ; Contador[2]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.654      ;
+; 0.535 ; \ContadorSeg:count2[22] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.655      ;
+; 0.538 ; Contador[1]             ; Contador[3]             ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.658      ;
+; 0.554 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.044      ; 0.682      ;
+; 0.556 ; \ContadorSeg:count2[13] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.683      ;
+; 0.556 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[16] ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.683      ;
+; 0.558 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.043      ; 0.685      ;
+; 0.570 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.690      ;
+; 0.571 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.691      ;
+; 0.572 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.692      ;
+; 0.574 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.694      ;
+; 0.575 ; \ContadorSeg:count2[5]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.695      ;
+; 0.577 ; \ContadorSeg:count2[21] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.697      ;
+; 0.578 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.895      ;
+; 0.583 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.703      ;
+; 0.584 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[19] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.703      ;
+; 0.584 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.704      ;
+; 0.585 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[5]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.705      ;
+; 0.586 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.706      ;
+; 0.587 ; \ContadorSeg:count2[4]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.707      ;
+; 0.590 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.907      ;
+; 0.603 ; \ContadorSeg:count2[20] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.723      ;
+; 0.608 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.728      ;
+; 0.612 ; \ContadorSeg:count2[24] ; \ContadorSeg:count2[24] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.731      ;
+; 0.613 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.930      ;
+; 0.616 ; \ContadorSeg:count2[12] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.933      ;
+; 0.621 ; \ContadorSeg:count2[11] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.044      ; 0.749      ;
+; 0.636 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.756      ;
+; 0.637 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.757      ;
+; 0.637 ; \ContadorSeg:count2[17] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.757      ;
+; 0.639 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.759      ;
+; 0.639 ; \ContadorSeg:count2[19] ; \ContadorSeg:count2[23] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.759      ;
+; 0.640 ; \ContadorSeg:count2[3]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.760      ;
+; 0.642 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; -0.153     ; 0.573      ;
+; 0.643 ; \ContadorSeg:count2[1]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.960      ;
+; 0.644 ; \ContadorSeg:count2[16] ; \ContadorSeg:count2[17] ; Clk          ; Clk         ; 0.000        ; -0.154     ; 0.574      ;
+; 0.645 ; \ContadorSeg:count2[6]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; -0.153     ; 0.576      ;
+; 0.645 ; \ContadorSeg:count2[14] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; -0.154     ; 0.575      ;
+; 0.649 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[9]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.769      ;
+; 0.651 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[7]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.771      ;
+; 0.652 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[15] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.771      ;
+; 0.652 ; \ContadorSeg:count2[2]  ; \ContadorSeg:count2[10] ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.772      ;
+; 0.654 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[11] ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.971      ;
+; 0.654 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[8]  ; Clk          ; Clk         ; 0.000        ; 0.036      ; 0.774      ;
+; 0.657 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[13] ; Clk          ; Clk         ; 0.000        ; 0.232      ; 0.973      ;
+; 0.658 ; \ContadorSeg:count2[0]  ; \ContadorSeg:count2[6]  ; Clk          ; Clk         ; 0.000        ; 0.233      ; 0.975      ;
+; 0.659 ; \ContadorSeg:count2[24] ; \ContadorSeg:count2[22] ; Clk          ; Clk         ; 0.000        ; 0.035      ; 0.778      ;
+; 0.660 ; \ContadorSeg:count2[10] ; \ContadorSeg:count2[14] ; Clk          ; Clk         ; 0.000        ; 0.232      ; 0.976      ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'Clk'                                                             ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                      ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; Clk   ; Rise       ; Clk                         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; Contador[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; -0.087 ; 0.097        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0           ;
+; -0.087 ; 0.097        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0           ;
+; -0.087 ; 0.097        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0           ;
+; -0.087 ; 0.097        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0           ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]     ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]     ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]     ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]     ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]      ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]                 ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]                 ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]                 ;
+; -0.075 ; 0.109        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; Contador[3]                 ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[24]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]     ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]     ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]      ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[9]      ;
+; 0.093  ; 0.093        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[0]~reg0|clk       ;
+; 0.093  ; 0.093        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[1]~reg0|clk       ;
+; 0.093  ; 0.093        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[2]~reg0|clk       ;
+; 0.093  ; 0.093        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador2[3]~reg0|clk       ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[11]|clk ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[13]|clk ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[14]|clk ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[16]|clk ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[6]|clk  ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[0]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[1]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[2]|clk             ;
+; 0.105  ; 0.105        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Contador[3]|clk             ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; Clk~input|o                 ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[0]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[10]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[12]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[15]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[17]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[18]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[19]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[1]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[20]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[21]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[22]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[23]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[24]|clk ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[2]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[3]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[4]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[5]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[7]|clk  ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; Clk   ; Rise       ; \ContadorSeg:count2[8]|clk  ;
++--------+--------------+----------------+-----------------+-------+------------+-----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.390 ; 0.648 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Hold Times                                                             ;
++-----------+------------+-------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+--------+------------+-----------------+
+; Enable    ; Clk        ; 0.250 ; -0.054 ; Rise       ; Clk             ;
++-----------+------------+-------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 3.406 ; 3.452 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 3.406 ; 3.452 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 3.371 ; 3.419 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 3.374 ; 3.426 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 3.371 ; 3.417 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 3.299 ; 3.344 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 3.335 ; 3.379 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 3.301 ; 3.346 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 3.304 ; 3.354 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 3.299 ; 3.344 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -3.866  ; 0.180 ; N/A      ; N/A     ; -3.000              ;
+;  Clk             ; -3.866  ; 0.180 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -81.369 ; 0.0   ; 0.0      ; 0.0     ; -38.208             ;
+;  Clk             ; -81.369 ; 0.000 ; N/A      ; N/A     ; -38.208             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.674 ; 0.816 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Enable    ; Clk        ; 0.430 ; 0.294 ; Rise       ; Clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 5.723 ; 5.737 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 5.723 ; 5.737 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 5.676 ; 5.668 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 5.683 ; 5.674 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 5.688 ; 5.701 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; Contador2[*]  ; Clk        ; 3.299 ; 3.344 ; Rise       ; Clk             ;
+;  Contador2[0] ; Clk        ; 3.335 ; 3.379 ; Rise       ; Clk             ;
+;  Contador2[1] ; Clk        ; 3.301 ; 3.346 ; Rise       ; Clk             ;
+;  Contador2[2] ; Clk        ; 3.304 ; 3.354 ; Rise       ; Clk             ;
+;  Contador2[3] ; Clk        ; 3.299 ; 3.344 ; Rise       ; Clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Contador2[0]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Contador2[1]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Contador2[2]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; Contador2[3]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; Clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; Enable                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Contador2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Contador2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; Contador2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clk        ; Clk      ; 6791     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clk        ; Clk      ; 6791     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 33    ; 33   ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Jun 13 10:21:42 2023
+Info: Command: quartus_sta DivFreq -c DivFreq
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'DivFreq.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Clk Clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.866
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.866             -81.369 Clk 
+Info (332146): Worst-case hold slack is 0.344
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.344               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -36.000 Clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.363
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.363             -68.798 Clk 
+Info (332146): Worst-case hold slack is 0.299
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.299               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -36.000 Clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.735
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.735             -32.353 Clk 
+Info (332146): Worst-case hold slack is 0.180
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.180               0.000 Clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -38.208 Clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4716 megabytes
+    Info: Processing ended: Tue Jun 13 10:21:43 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,432 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "04/24/2023 23:04:26"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    ParqueaderoUnitario
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module ParqueaderoUnitario_vlg_sample_tst(
+	Entrada,
+	senalReloj,
+	sampler_tx
+);
+input  Entrada;
+input  senalReloj;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(Entrada or senalReloj)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module ParqueaderoUnitario_vlg_check_tst (
+	Felicitacion,
+	MinUni,
+	SegDec,
+	SegUni,
+	sampler_rx
+);
+input  Felicitacion;
+input [3:0] MinUni;
+input [2:0] SegDec;
+input [3:0] SegUni;
+input sampler_rx;
+
+reg  Felicitacion_expected;
+reg [3:0] MinUni_expected;
+reg [2:0] SegDec_expected;
+reg [3:0] SegUni_expected;
+
+reg  Felicitacion_prev;
+reg [3:0] MinUni_prev;
+reg [2:0] SegDec_prev;
+reg [3:0] SegUni_prev;
+
+reg  Felicitacion_expected_prev;
+reg [3:0] MinUni_expected_prev;
+reg [2:0] SegDec_expected_prev;
+reg [3:0] SegUni_expected_prev;
+
+reg  last_Felicitacion_exp;
+reg [3:0] last_MinUni_exp;
+reg [2:0] last_SegDec_exp;
+reg [3:0] last_SegUni_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:4] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 4'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	Felicitacion_prev = Felicitacion;
+	MinUni_prev = MinUni;
+	SegDec_prev = SegDec;
+	SegUni_prev = SegUni;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	Felicitacion_expected_prev = Felicitacion_expected;
+	MinUni_expected_prev = MinUni_expected;
+	SegDec_expected_prev = SegDec_expected;
+	SegUni_expected_prev = SegUni_expected;
+end
+
+
+
+// expected Felicitacion
+initial
+begin
+	Felicitacion_expected = 1'bX;
+end 
+// expected MinUni[ 3 ]
+initial
+begin
+	MinUni_expected[3] = 1'bX;
+end 
+// expected MinUni[ 2 ]
+initial
+begin
+	MinUni_expected[2] = 1'bX;
+end 
+// expected MinUni[ 1 ]
+initial
+begin
+	MinUni_expected[1] = 1'bX;
+end 
+// expected MinUni[ 0 ]
+initial
+begin
+	MinUni_expected[0] = 1'bX;
+end 
+// expected SegDec[ 2 ]
+initial
+begin
+	SegDec_expected[2] = 1'bX;
+end 
+// expected SegDec[ 1 ]
+initial
+begin
+	SegDec_expected[1] = 1'bX;
+end 
+// expected SegDec[ 0 ]
+initial
+begin
+	SegDec_expected[0] = 1'bX;
+end 
+// expected SegUni[ 3 ]
+initial
+begin
+	SegUni_expected[3] = 1'bX;
+end 
+// expected SegUni[ 2 ]
+initial
+begin
+	SegUni_expected[2] = 1'bX;
+end 
+// expected SegUni[ 1 ]
+initial
+begin
+	SegUni_expected[1] = 1'bX;
+end 
+// expected SegUni[ 0 ]
+initial
+begin
+	SegUni_expected[0] = 1'bX;
+end 
+// generate trigger
+always @(Felicitacion_expected or Felicitacion or MinUni_expected or MinUni or SegDec_expected or SegDec or SegUni_expected or SegUni)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected Felicitacion = %b | expected MinUni = %b | expected SegDec = %b | expected SegUni = %b | ",Felicitacion_expected_prev,MinUni_expected_prev,SegDec_expected_prev,SegUni_expected_prev);
+	$display("| real Felicitacion = %b | real MinUni = %b | real SegDec = %b | real SegUni = %b | ",Felicitacion_prev,MinUni_prev,SegDec_prev,SegUni_prev);
+`endif
+	if (
+		( Felicitacion_expected_prev !== 1'bx ) && ( Felicitacion_prev !== Felicitacion_expected_prev )
+		&& ((Felicitacion_expected_prev !== last_Felicitacion_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Felicitacion :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Felicitacion_expected_prev);
+		$display ("     Real value = %b", Felicitacion_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_Felicitacion_exp = Felicitacion_expected_prev;
+	end
+	if (
+		( MinUni_expected_prev[0] !== 1'bx ) && ( MinUni_prev[0] !== MinUni_expected_prev[0] )
+		&& ((MinUni_expected_prev[0] !== last_MinUni_exp[0]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port MinUni[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", MinUni_expected_prev);
+		$display ("     Real value = %b", MinUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_MinUni_exp[0] = MinUni_expected_prev[0];
+	end
+	if (
+		( MinUni_expected_prev[1] !== 1'bx ) && ( MinUni_prev[1] !== MinUni_expected_prev[1] )
+		&& ((MinUni_expected_prev[1] !== last_MinUni_exp[1]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port MinUni[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", MinUni_expected_prev);
+		$display ("     Real value = %b", MinUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_MinUni_exp[1] = MinUni_expected_prev[1];
+	end
+	if (
+		( MinUni_expected_prev[2] !== 1'bx ) && ( MinUni_prev[2] !== MinUni_expected_prev[2] )
+		&& ((MinUni_expected_prev[2] !== last_MinUni_exp[2]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port MinUni[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", MinUni_expected_prev);
+		$display ("     Real value = %b", MinUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_MinUni_exp[2] = MinUni_expected_prev[2];
+	end
+	if (
+		( MinUni_expected_prev[3] !== 1'bx ) && ( MinUni_prev[3] !== MinUni_expected_prev[3] )
+		&& ((MinUni_expected_prev[3] !== last_MinUni_exp[3]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port MinUni[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", MinUni_expected_prev);
+		$display ("     Real value = %b", MinUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_MinUni_exp[3] = MinUni_expected_prev[3];
+	end
+	if (
+		( SegDec_expected_prev[0] !== 1'bx ) && ( SegDec_prev[0] !== SegDec_expected_prev[0] )
+		&& ((SegDec_expected_prev[0] !== last_SegDec_exp[0]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegDec[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegDec_expected_prev);
+		$display ("     Real value = %b", SegDec_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_SegDec_exp[0] = SegDec_expected_prev[0];
+	end
+	if (
+		( SegDec_expected_prev[1] !== 1'bx ) && ( SegDec_prev[1] !== SegDec_expected_prev[1] )
+		&& ((SegDec_expected_prev[1] !== last_SegDec_exp[1]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegDec[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegDec_expected_prev);
+		$display ("     Real value = %b", SegDec_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_SegDec_exp[1] = SegDec_expected_prev[1];
+	end
+	if (
+		( SegDec_expected_prev[2] !== 1'bx ) && ( SegDec_prev[2] !== SegDec_expected_prev[2] )
+		&& ((SegDec_expected_prev[2] !== last_SegDec_exp[2]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegDec[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegDec_expected_prev);
+		$display ("     Real value = %b", SegDec_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_SegDec_exp[2] = SegDec_expected_prev[2];
+	end
+	if (
+		( SegUni_expected_prev[0] !== 1'bx ) && ( SegUni_prev[0] !== SegUni_expected_prev[0] )
+		&& ((SegUni_expected_prev[0] !== last_SegUni_exp[0]) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegUni[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegUni_expected_prev);
+		$display ("     Real value = %b", SegUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_SegUni_exp[0] = SegUni_expected_prev[0];
+	end
+	if (
+		( SegUni_expected_prev[1] !== 1'bx ) && ( SegUni_prev[1] !== SegUni_expected_prev[1] )
+		&& ((SegUni_expected_prev[1] !== last_SegUni_exp[1]) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegUni[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegUni_expected_prev);
+		$display ("     Real value = %b", SegUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_SegUni_exp[1] = SegUni_expected_prev[1];
+	end
+	if (
+		( SegUni_expected_prev[2] !== 1'bx ) && ( SegUni_prev[2] !== SegUni_expected_prev[2] )
+		&& ((SegUni_expected_prev[2] !== last_SegUni_exp[2]) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegUni[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegUni_expected_prev);
+		$display ("     Real value = %b", SegUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_SegUni_exp[2] = SegUni_expected_prev[2];
+	end
+	if (
+		( SegUni_expected_prev[3] !== 1'bx ) && ( SegUni_prev[3] !== SegUni_expected_prev[3] )
+		&& ((SegUni_expected_prev[3] !== last_SegUni_exp[3]) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SegUni[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SegUni_expected_prev);
+		$display ("     Real value = %b", SegUni_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_SegUni_exp[3] = SegUni_expected_prev[3];
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module ParqueaderoUnitario_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg Entrada;
+reg senalReloj;
+// wires                                               
+wire Felicitacion;
+wire [3:0] MinUni;
+wire [2:0] SegDec;
+wire [3:0] SegUni;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+ParqueaderoUnitario i1 (
+// port map - connection between master ports and signals/registers   
+	.Entrada(Entrada),
+	.Felicitacion(Felicitacion),
+	.MinUni(MinUni),
+	.SegDec(SegDec),
+	.SegUni(SegUni),
+	.senalReloj(senalReloj)
+);
+
+// senalReloj
+always
+begin
+	senalReloj = 1'b0;
+	senalReloj = #2500 1'b1;
+	#2500;
+end 
+
+// Entrada
+initial
+begin
+	Entrada = 1'b0;
+	Entrada = #50000 1'b1;
+	Entrada = #240000 1'b0;
+	Entrada = #140000 1'b1;
+	Entrada = #120000 1'b0;
+end 
+
+ParqueaderoUnitario_vlg_sample_tst tb_sample (
+	.Entrada(Entrada),
+	.senalReloj(senalReloj),
+	.sampler_tx(sampler)
+);
+
+ParqueaderoUnitario_vlg_check_tst tb_out(
+	.Felicitacion(Felicitacion),
+	.MinUni(MinUni),
+	.SegDec(SegDec),
+	.SegUni(SegUni),
+	.sampler_rx(sampler)
+);
+endmodule
+

@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Documentos\DocumentosU\VHDL\ParcialVfinal\ParteParcial6\simulation\qsim
+vParqueaderoUnitario
+Z1 I_2Z?BPi[hd@J26lQgSe4k0
+Z2 V74MaoAH>=IEI7eJ>o;n9i3
+Z3 dD:\Documentos\DocumentosU\VHDL\ParcialVfinal\ParteParcial6\simulation\qsim
+Z4 w1682395467
+Z5 8ParqueaderoUnitario.vo
+Z6 FParqueaderoUnitario.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|ParqueaderoUnitario.vo|
+Z9 o-work work -O0
+Z10 n@parqueadero@unitario
+!i10b 1
+Z11 !s100 L`mhbd@i=UWUekCbP`K4W0
+!s85 0
+Z12 !s108 1682395468.219000
+Z13 !s107 ParqueaderoUnitario.vo|
+!s101 -O0
+vParqueaderoUnitario_vlg_check_tst
+!i10b 1
+Z14 !s100 ck^zcg0S57S:;5jSj=N>42
+Z15 I[5?hn?`KNI81VAKMbiA@f3
+Z16 V?04>4h3_Ge0;J?=h2MR9V0
+R3
+Z17 w1682395466
+Z18 8Waveform.vwf.vt
+Z19 FWaveform.vwf.vt
+L0 59
+R7
+r1
+!s85 0
+31
+Z20 !s108 1682395468.290000
+Z21 !s107 Waveform.vwf.vt|
+Z22 !s90 -work|work|Waveform.vwf.vt|
+!s101 -O0
+R9
+Z23 n@parqueadero@unitario_vlg_check_tst
+vParqueaderoUnitario_vlg_sample_tst
+!i10b 1
+Z24 !s100 TTaP=bZmFjzJXSPomZVPX3
+Z25 IWCbSZdmVjM<EgUD`df`J62
+Z26 V3g^OlgOCj`^ER2z:Deb_V0
+R3
+R17
+R18
+R19
+L0 29
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@parqueadero@unitario_vlg_sample_tst
+vParqueaderoUnitario_vlg_vec_tst
+!i10b 1
+Z28 !s100 oV<fQFaL<QioOn;42<O_A1
+Z29 IdGh?dz]KhgTeSDeS=7aW`3
+Z30 VJk]FVkV@Ii^CFIh4C:W561
+R3
+R17
+R18
+R19
+Z31 L0 376
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z32 n@parqueadero@unitario_vlg_vec_tst
